@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     rating: 5,
     reviews: [],
     price: 1200,
@@ -11,6 +12,7 @@ const products = [
       "Model Name Zeb-Yoga 101 Color Red Headphone Type in the Ear Inline Remote Yes Sales ",
   },
   {
+    id: 2,
     rating: 5,
     reviews: [],
     price: 15000,
@@ -22,6 +24,7 @@ const products = [
       "Quad camera setup -64MP (F1.8) main camera + 12MP (F2.2) ultra wide camera + 5MP  ",
   },
   {
+    id: 3,
     rating: 4,
     reviews: [],
     price: 48000,
@@ -32,6 +35,7 @@ const products = [
     description: "a",
   },
   {
+    id: 4,
     rating: 4,
     reviews: [],
     price: 4800,
@@ -43,6 +47,7 @@ const products = [
       "NoLogo is all about high quality comfortable clothes which are never out of fashion. The brand believes in minimilistic approach to life rather than show off. There is no brand logo on the outer side of the garment. Be yourself when you wear NoLogo",
   },
   {
+    id: 5,
     rating: 5,
     reviews: [],
     price: 800,
@@ -54,6 +59,7 @@ const products = [
       "Strong, consistent wireless connection from distances up to 10-meters (33-feet) away. With virtually no delays or dropouts, you’ll work and play with confidence.Tested to 10 meters, the wireless range may vary slightly based on your computing conditions and environment.",
   },
   {
+    id: 6,
     rating: 4,
     reviews: [],
     price: 48000,
