@@ -23,7 +23,9 @@ h1 {
 .img-fluid {
   height: 200px;
 }
-
+p {
+  text-align: left !important;
+}
 /* Old Code********************************************************** */
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
