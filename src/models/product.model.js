@@ -1,0 +1,52 @@
+import mongoose, { Schema } from "mongoose";
+
+const reviewSchema = new Schema({
+    userId:{
+        type:mongoose.Schema.Types.ObjectId
+    },
+    name:{
+        type:String,
+        require:true
+    },
+    comment:{
+        type:String
+    },
+    rating:{
+        type:Number,
+        require:true
+    }
+},{timestamps:true}) 
+const productSchema = new Schema({
+name:{
+    type:String,
+    require:true,
+},
+image:{
+    type:String,
+    require:true
+},
+category:{
+    type:String,
+    require:true
+},
+description:{
+    type:String,
+    require:true
+},
+price:{
+    type:Number,
+    require:true
+},
+countInStock:{
+    type:Number,
+    require:true
+},
+rating:{
+    type:Number,
+    require:true
+},
+reviews:[reviewSchema]
+
+},{timestamps:true})
+
+export const Product = mongoose.model("products",productSchema)

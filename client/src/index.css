@@ -5,8 +5,8 @@
 }
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-width: 320px;
+  min-height: 100vh; */
 }
 .navbar {
   background-color: rgb(1, 1, 51);
@@ -19,12 +19,32 @@ body {
 }
 h1 {
   font-size: 18px !important;
+  color: black;
+  /* text-align: left !important; */
 }
 .img-fluid {
   height: 200px;
+  
 }
 p {
   text-align: left !important;
+}
+h2 {
+font-size: 25px;
+font-weight: bold;
+}
+.btn{
+  background-color: black;
+  color: white;
+  width: 200px;
+}
+input {
+  box-shadow: none;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+li {
+  color: white;
 }
 /* Old Code********************************************************** */
 /* :root {

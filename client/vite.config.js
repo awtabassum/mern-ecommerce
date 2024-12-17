@@ -1,3 +1,4 @@
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -7,7 +8,10 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:8000',  // Proxy API requests to backend
         changeOrigin: true,
-        // rewrite: (path) => path.replace(/^\/api/, '')
+        /*optimizeDeps: {
+          include: ['redux-thunk'],
+        },*/
+        // rewrite: (path) => path.replace(/^\/api/, '')  // This should rewrite /api to empty, keeping the rest of the path
       }
     }
   },
