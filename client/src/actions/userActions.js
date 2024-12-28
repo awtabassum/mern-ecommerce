@@ -1,6 +1,6 @@
 import axios from "axios";
 import {getNewUserSuccess, getNewUserFailure} from "../store/userReducer"
-import {getLoginSuccess, getLoginFailure, logout} from "../store/userReducer"
+import {startLoading,getLoginSuccess, getLoginFailure, logout} from "../store/userReducer"
 
 export const registerNewUser = (user) => async (dispatch) => {
 try {
@@ -17,6 +17,9 @@ try {
 
 export const loginUser = (user) => async (dispatch) => {
     try {
+       
+        dispatch(startLoading()); // Set status to 'loading'
+        
         const response = await axios.post('/api/v1/login',user)
         dispatch(getLoginSuccess(response.data));
         console.log(response);

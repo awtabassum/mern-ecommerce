@@ -1,3 +1,4 @@
+/*
 const cartReducer = (state = { cartItems: [] }, action) => {
     switch (action.type) {
         case 'ADD_TO_CART': 
@@ -30,10 +31,10 @@ const cartReducer = (state = { cartItems: [] }, action) => {
 };
 
 export default cartReducer;
-
+*/
 // Following is the updated code
 // Ensure that cartItems is correctly synced between localStorage and Redux. The initial state in store.js ensures that cart items are fetched from localStorage:
-/*
+
 const addToCartReducer = (state = { cartItems: [] }, action) => {
     switch (action.type) {
         case 'ADD_TO_CART': {
@@ -58,4 +59,4 @@ const addToCartReducer = (state = { cartItems: [] }, action) => {
     }
 };
 
-*/
+export default addToCartReducer;

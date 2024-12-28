@@ -1,10 +1,14 @@
+
 import axios from "axios";
-import {getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess,getProductByIdFailure} from "../store/productsReducer";
+import {getAllProductsStart, getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess,getProductByIdFailure} from "../store/productsReducer";
 
 export const getAllProductsAction = () => async (dispatch) => {
   
 
   try {
+    // await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate delay
+
+    dispatch(getAllProductsStart());
     const response = await axios.get('/api/v1/getallproducts');
     dispatch(getAllProductsSuccess(response.data.data || []))
   } catch (error) {
@@ -28,6 +32,64 @@ export const getProductById = (productid) => async (dispatch) => {
  
 }
 
+export const filterProducts = (searchKey, sort, category) => async (dispatch) => {
+ 
+  try {
+    const response = await axios.get('/api/v1/getallproducts');
+    let filteredProducts = response.data.data || [];
+    // dispatch(getAllProductsSuccess(response.data.data || []))
+    if (searchKey) {
+      // filterProducts = response.data.filter(product => {return product.name.toLowerCase().includes(searchKey)})
+      filteredProducts = filteredProducts.filter((product) =>
+        product.name.toLowerCase().includes(searchKey.toLowerCase())
+      );
+    }
+    /*
+    // if (searchKey !== 'popular') {
+      // if (searchKey === 'htl') {
+        if (sort === 'htl') {
+        filterProducts = response.data.sort((a,b)=>{
+          return b.price - a.price ;
+        })
+     }
+     else if {
+      filterProducts = response.data.sort((a,b)=>{
+        return a.price - b.price;
+      })
+     }
+    // }
+    if(category !== 'all'){
+     filterProducts = response.data.filter(product => {return product.category.toLowerCase().includes(category)})
+    }
+    dispatch(getAllProductsSuccess(response.data.data || []))
+    */
+
+    // Apply search key filter
+    if (searchKey) {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.name.toLowerCase().includes(searchKey.toLowerCase())
+      );
+    }
+    if (sort === 'htl') {
+      filteredProducts = filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (sort === 'lth') {
+      filteredProducts = filteredProducts.sort((a, b) => a.price - b.price);
+    }
+
+    // Apply category filter
+    if (category !== 'all') {
+      filteredProducts = filteredProducts.filter((product) =>
+        product.category.toLowerCase().includes(category.toLowerCase())
+      );
+    }
+
+    // Dispatch the filtered products
+    dispatch(getAllProductsSuccess(filteredProducts));
+  } catch (error) {
+    console.log("Error while getting filtered products", error);
+    dispatch(getAllProductsFailure());
+  }
+}
 /*
 import axios from "axios";
 // export const getAllProducts = () => dispatch => {

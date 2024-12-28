@@ -1,10 +1,20 @@
 import React,{useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {loginUser} from '../actions/userActions'
+import Error from '../components/Error';
+import Loader from '../components/Loader';
 
 function Loginscreen() {
-    const loginuser = useSelector(state=>state.loginUser)
-    const {loading,error} = loginuser
+    // const loginuser = useSelector(state=>state.user)
+    // const { status } = loginuser;
+    // const loading = status === 'idle';
+    // const error = status === 'failed';
+    
+    const { userData, status } = useSelector(state => state.user);
+    const loading = status === 'loading';
+    const error = status === 'failed';
+
+
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('');
     

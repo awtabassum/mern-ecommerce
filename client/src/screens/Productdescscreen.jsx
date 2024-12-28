@@ -32,15 +32,26 @@ function Productdescscreen() {
   }, [dispatch, id])
   
 // Handle loading state
+/*
 if (status === 'failed') {
   // return <div>Some Error while loading details of single product</div>
   <Error error='Some Error while loading details of single product'/>
 }
+*/
+if (status === 'loading') {
+  return <Loader />;
+}
 
+if (status === 'failed') {
+  return <Error error="Some error occurred while loading the product details." />;
+}
+
+/*
 if (status === 'idle'){
   // return <div>Loading...</div>
   <Loader />
 }
+*/
 // console.log("Product Details:", productDetails);
 //   console.log("Count In Stock:", productDetails?.countInStock);
   return (

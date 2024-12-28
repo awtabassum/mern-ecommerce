@@ -16,7 +16,8 @@ const currentUser = localStorage.getItem('currentUser')
   // Define the initial state
 const initialState = {
     cart: { cartItems: cartItems },
-    user: { currentUser: currentUser }
+    user: { currentUser: currentUser },
+    
     // user: { currentUser: loggedUser }
     // loginReducer:{currentUser : currentUser}
   };
