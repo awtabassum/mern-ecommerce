@@ -9,6 +9,8 @@ import Productdescscreen from "./screens/Productdescscreen"
 import Cartscreen from "./screens/Cartscreen";
 import Registerscreen from "./screens/Registerscreen";
 import Loginscreen from "./screens/Loginscreen";
+import Ordersscreen from "./screens/Ordersscreen";
+import Orderinfoscreen from "./screens/Orderinfoscreen";
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
           <Route path="/cart" Component={Cartscreen}/>
           <Route path="/register" Component={Registerscreen}/>
           <Route path="/login" Component={Loginscreen}/>
+          <Route path="/orders" Component={Ordersscreen}/>
+          <Route path="/orderinfo/:orderid" Component={Orderinfoscreen}/>
         </Routes>
       </BrowserRouter>
     </>

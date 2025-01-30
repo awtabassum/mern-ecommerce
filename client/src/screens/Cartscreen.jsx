@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux"
 import { addToCart, deleteFromCart } from "../actions/cartActions.js"
+import Checkout from '../components/Checkout.jsx';
 // import addToCartReducer from "../store/cartReducer"
 
 function Cartscreen() {
@@ -55,9 +56,12 @@ function Cartscreen() {
             <hr />
             <h2 className='text-center'>SubTotal: {subTotal} RS/-</h2>
             <hr />
-            <div className='text-center p-3'>
+            
+            {/* <div className='text-center p-3'>
             <button className='btn'>PAY NOW</button>
-            </div>
+            </div> */}
+            <Checkout amount={subTotal}/>
+            
         </div>
     </div>    
     </div>

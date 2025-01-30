@@ -18,7 +18,7 @@ body {
   color: white;
 }
 h1 {
-  font-size: 18px !important;
+  font-size: 16px !important;
   color: black;
   /* text-align: left !important; */
 }
@@ -45,6 +45,12 @@ input {
 }
 li {
   color: white;
+}
+h3{
+  font-size: 16px;
+}
+.orderItem h1{
+font-size: 16px;
 }
 /* Old Code********************************************************** */
 /* :root {

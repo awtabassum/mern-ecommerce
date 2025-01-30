@@ -1,6 +1,7 @@
 
 import axios from "axios";
-import {getAllProductsStart, getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess,getProductByIdFailure} from "../store/productsReducer";
+import {getAllProductsStart, getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess,getProductByIdFailure, getProductReviewSuccess, getProductReviewFailure} from "../store/productsReducer";
+import {loginUser} from "../actions/userActions"
 
 export const getAllProductsAction = () => async (dispatch) => {
   
@@ -90,6 +91,26 @@ export const filterProducts = (searchKey, sort, category) => async (dispatch) =>
     dispatch(getAllProductsFailure());
   }
 }
+
+export const addProductReview = (review, productId)=> async (dispatch, getState)=>{
+  try {
+    
+    // const currentUser = getState().loginUser.currentUser
+    const currentUser = getState().user.currentUser;
+    console.log({ currentUser });
+    const response = await axios.post('/api/v1/addreview', {review, productId, currentUser})
+      console.log(response);
+      // dispatch(getProductReviewSuccess(response.data));
+      dispatch(getProductReviewSuccess())
+      window.location.reload()
+    
+  } catch (error) {
+    // console.log("Error while getting product review", error);
+    console.log("Error while adding product review:", error.response?.data || error.message);
+    dispatch(getProductReviewFailure());
+  }
+}
+
 /*
 import axios from "axios";
 // export const getAllProducts = () => dispatch => {

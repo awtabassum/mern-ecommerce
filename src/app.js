@@ -18,10 +18,11 @@ app.use(cors({
     // routes import
 import productRouter from "./routes/products.routes.js"
 import userRouter from "./routes/user.routes.js"
+import orderRouter from "./routes/order.routes.js"
 // routes declaration
 app.use("/api/v1",productRouter)
 app.use("/api/v1",userRouter)
-
+app.use("/api/v1",orderRouter)
 
 
 

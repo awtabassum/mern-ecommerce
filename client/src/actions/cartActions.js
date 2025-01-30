@@ -12,12 +12,22 @@ const addToCart = (product, quantity) => (dispatch, getState) => {
       "cartItems",
       JSON.stringify(getState().cart.cartItems) // Updated path
     );
+    
+    
   };
-
   const deleteFromCart = (item)=>dispatch=>{
+    dispatch({type:"DELETE_FROM_CART", payload:item})
+    
+   }
+  /*
+  const deleteFromCart = (item)=>(dispatch, getState)=>{
    dispatch({type:"DELETE_FROM_CART", payload:item})
+   localStorage.setItem(
+    "cartItems",
+    JSON.stringify(getState().cart.cartItems) // Updated path
+  );
   }
-  
+  */
   export { addToCart, deleteFromCart };
   
 

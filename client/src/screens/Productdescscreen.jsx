@@ -5,6 +5,7 @@ import {getProductById} from "../actions/productActions"
 import {addToCart} from "../actions/cartActions"
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import Review from "../components/Review"
 
 function Productdescscreen() {
   // const products = [];
@@ -88,9 +89,10 @@ if (status === 'idle'){
       </option>
     ))
   ) : (
-    <option value="0" disabled>
-      Out of Stock
-    </option>
+     <option value="0" disabled>
+       Out of Stock
+     </option>
+  
   )
   
    }
@@ -101,6 +103,8 @@ if (status === 'idle'){
             <hr />
             <button className="btn btn-dark" onClick={handleAddToCart}>ADD TO CART</button>
           </div>
+          <hr />
+          <Review product={productDetails}/>
         </div>
       </div>
     </>
