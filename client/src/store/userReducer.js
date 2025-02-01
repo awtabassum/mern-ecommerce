@@ -32,6 +32,13 @@ const userSlice = createSlice({
                 state.userData = null; // Clear userData
                 state.status = 'idle'; // Reset status
             },
+            getUpdatedUserSuccess : (state,action)=>{
+                state.status = 'succeeded';
+                state.userData = action.payload;
+                },
+                getUpdatedUserFailure : (state)=>{
+                 state.status = "failed"
+                },
             //    getLogoutSuccess : (state,action)=>{
             //     state.status = 'succeeded';
             //     state.userData = action.payload;
@@ -42,6 +49,6 @@ const userSlice = createSlice({
     }
 })
 
-export const {startLoading,getNewUserSuccess, getNewUserFailure, getLoginSuccess,getLoginFailure,logout} = userSlice.actions
+export const {startLoading,getNewUserSuccess, getNewUserFailure, getLoginSuccess,getLoginFailure,logout, getUpdatedUserSuccess, getUpdatedUserFailure} = userSlice.actions
 
 export default userSlice.reducer

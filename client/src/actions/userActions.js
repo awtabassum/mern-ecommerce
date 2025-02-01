@@ -1,7 +1,7 @@
 import axios from "axios";
 import {getNewUserSuccess, getNewUserFailure} from "../store/userReducer"
 import {startLoading,getLoginSuccess, getLoginFailure, logout} from "../store/userReducer"
-
+import {getUpdatedUserSuccess, getUpdatedUserFailure} from "../store/userReducer"
 export const registerNewUser = (user) => async (dispatch) => {
 try {
     const response = await axios.post('/api/v1/register',user)
@@ -46,3 +46,18 @@ export const loginUser = (user) => async (dispatch) => {
         
         }
     }
+
+    export const updateUser = (userId, updatedUser) => async (dispatch) => {
+        try {
+            // const response = await axios.post('/api/v1/update',{userId, updatedUser})
+            const response = await axios.put(`/api/v1/update/${userId}`, updatedUser)
+            dispatch(getNewUserSuccess(response.data));
+            // dispatch(getNewUserSuccess(response.data.data) || [])
+            console.log(response);
+            window.location.reload()
+        } catch (error) {
+            console.log("Error while updating the user data", error);
+            dispatch(getNewUserFailure())
+            console.log(error);
+        }
+        }

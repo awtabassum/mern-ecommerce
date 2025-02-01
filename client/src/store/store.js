@@ -3,6 +3,7 @@ import productsReducer from "./productsReducer";
 import cartReducer from "./cartReducer";
 import userReducer from "./userReducer";
 import orderReducer from "./orderReducer"
+// import { updateUser } from "../actions/userActions";
 // Fetch cart items from localStorage or use an empty array
 const cartItems = localStorage.getItem('cartItems') 
   ? JSON.parse(localStorage.getItem('cartItems')) 
