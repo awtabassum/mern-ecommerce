@@ -11,11 +11,23 @@ function Profilescreen() {
     const { currentUser } = useSelector((state) => state.user) || {}; // Safe access
     const updateUserState = useSelector(state=>state.updateUser)
     
-    const [name, setname] = useState(currentUser.name);
-        const [email, setemail] = useState(currentUser.email);
+        // const [name, setname] = useState(currentUser.name);
+        // const [email, setemail] = useState(currentUser.email);
+
+        const [name, setname] = useState(currentUser?.name || '');
+        const [email, setemail] = useState(currentUser?.email || '');
+  
     
         const [password, setpassword] = useState('');
         const [cpassword, setcpassword] = useState('');
+
+        useEffect(() => {
+          if (currentUser) {
+              setname(currentUser.name);
+              setemail(currentUser.email);
+          }
+      }, [currentUser])
+
         const dispatch = useDispatch()
         const update = (e) => {
         e.preventDefault()
@@ -33,6 +45,9 @@ function Profilescreen() {
          }
          
         }
+        console.log("Redux state:", currentUser);
+console.log("LocalStorage:", localStorage.getItem("currentUser"));
+
   return (
     <>
     <h1>Profilescreen</h1>

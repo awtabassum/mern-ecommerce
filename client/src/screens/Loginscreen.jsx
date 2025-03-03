@@ -10,7 +10,7 @@ function Loginscreen() {
     // const loading = status === 'idle';
     // const error = status === 'failed';
     
-    const { userData, status } = useSelector(state => state.user);
+    const { userData, status } = useSelector(state => state.users);
     const loading = status === 'loading';
     const error = status === 'failed';
 

@@ -48,10 +48,28 @@ const productsSlice = createSlice({
       getProductReviewFailure : (state, action) => {
         state.status = "failed";
         state.error = action.payload || 'Failed to fetch reviews';
+      },
+      
+      getdeleteProductSuccess : (state, action) => {
+       state.status = "succeeded";
+       state.loading = false;
+       state.productsData = state.productsData.filter(product => product._id !== action.payload.productId)
+      },
+
+      getdeleteProductFailure : (state)=>{
+        state.status = "failure"
+        state.loading = false
+      },
+      getAddProductSuccess : (state, action) => {
+      state.status = "succeeded"
+      state.loading = "false"
+      },
+      getAddProductFailure : (state) => {
+
       }
     }
 })
 
 
-export const {getAllProductsStart, getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess, getProductByIdFailure, getProductReviewSuccess, getProductReviewFailure} = productsSlice.actions;
+export const {getAllProductsStart, getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess, getProductByIdFailure, getProductReviewSuccess, getProductReviewFailure,getdeleteProductSuccess, getdeleteProductFailure, getAddProductSuccess, getAddProductFailure} = productsSlice.actions;
 export default productsSlice.reducer;

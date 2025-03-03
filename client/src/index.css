@@ -52,6 +52,15 @@ h3{
 .orderItem h1{
 font-size: 16px;
 }
+.admin{
+  background-color: aquamarine;
+}
+.admin li{
+  list-style-type:none;
+  color: black;
+  display: inline-flex;
+  margin-left: 20px;
+}
 /* Old Code********************************************************** */
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

@@ -1,7 +1,9 @@
 
 import axios from "axios";
-import {getAllProductsStart, getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess,getProductByIdFailure, getProductReviewSuccess, getProductReviewFailure} from "../store/productsReducer";
+import {getAllProductsStart, getAllProductsSuccess, getAllProductsFailure, getProductByIdSuccess,getProductByIdFailure, getProductReviewSuccess, getProductReviewFailure, getdeleteProductSuccess, getdeleteProductFailure} from "../store/productsReducer";
+import {getAddProductSuccess, getAddProductFailure} from "../store/productsReducer"
 import {loginUser} from "../actions/userActions"
+import { startLoading } from "../store/userReducer";
 
 export const getAllProductsAction = () => async (dispatch) => {
   
@@ -111,6 +113,29 @@ export const addProductReview = (review, productId)=> async (dispatch, getState)
   }
 }
 
+export const deleteProduct = (productId)=> async (dispatch) => {
+try {
+  dispatch(startLoading())
+  const response = await axios.post('/api/v1/deleteproduct', {productId})
+  dispatch(getdeleteProductSuccess({productId}))
+  dispatch(getAllProductsAction());  
+} catch (error) {
+  console.log("An error occured while deleting the product", error);
+  dispatch(getdeleteProductFailure())
+}
+}
+
+export const addProduct = (product) => async (dispatch) => {
+  try {
+    const response = await axios.post('/api/v1/addproduct',product)
+    dispatch(getAddProductSuccess(response.data))
+    console.log(response);
+    
+  } catch (error) {
+    console.log("Error occured while adding a new product in Admin side", error);
+    dispatch(getAddProductFailure())
+  }
+}
 /*
 import axios from "axios";
 // export const getAllProducts = () => dispatch => {

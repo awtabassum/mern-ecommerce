@@ -12,6 +12,7 @@ import Loginscreen from "./screens/Loginscreen";
 import Ordersscreen from "./screens/Ordersscreen";
 import Orderinfoscreen from "./screens/Orderinfoscreen";
 import Profilescreen from "./screens/Profilescreen";
+import Adminscreen from "./screens/Adminscreen";
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
           <Route path="/orders" Component={Ordersscreen}/>
           <Route path="/orderinfo/:orderid" Component={Orderinfoscreen}/>
           <Route path="/profile" Component={Profilescreen}/>
+          <Route path="/admin/*" Component={Adminscreen}/>
+          
         </Routes>
       </BrowserRouter>
     </>

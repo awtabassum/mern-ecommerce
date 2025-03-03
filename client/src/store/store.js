@@ -9,6 +9,7 @@ const cartItems = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems')) 
   : [];
 // Fetch current user
+
 // const loggedUser = localStorage.getItem('currentUser')?JSON.parse(localStorage.getItem('currentUser')):null;
 const currentUser = localStorage.getItem('currentUser') 
   ? JSON.parse(localStorage.getItem('currentUser')) 
@@ -39,7 +40,7 @@ const store = configureStore({
     reducer:{
         products : productsReducer,
         cart:cartReducer,
-        user:userReducer,
+        users:userReducer,
         order:orderReducer
     },
     preloadedState: initialState, // Set the initial state here

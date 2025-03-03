@@ -9,7 +9,6 @@ import Filter from "../components/Filter";
 function Homescreen() {
   const dispatch = useDispatch();
   const { productsData, status } = useSelector((state) => state.products);
-  
   // const products = useSelector((state) => state.products.productsData) // Access products data from Redux state
   // const [loading, setLoading] = useState('');
   // const [error, setError] = useState('');
